@@ -88,23 +88,6 @@ tb_multiplier_logic.v.bak
 - Intel Quartus Prime  
 - FPGA Development Board  
 
----
-
-## 🎥 Project Demo
-
-Watch the hardware working demo here:
-
-[Project Video Link](#)
-
----
-
-## 🔗 Connect With Me
-
-LinkedIn Profile:
-
-[Your LinkedIn Profile Link](#)
-
----
 
 ## 🔮 Future Improvements
 
