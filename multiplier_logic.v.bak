@@ -1,0 +1,37 @@
+module multiplier_logic_only (
+    input  wire        clk,
+    input  wire        rst_n,
+    input  wire [15:0] a,
+    input  wire [15:0] b,
+    output reg  [31:0] y
+);
+
+    reg [31:0] product;
+    reg [15:0] b_reg;
+    reg [4:0]  count;
+
+    always @(posedge clk) begin
+        if (!rst_n) begin
+            product <= 32'd0;
+            b_reg   <= 16'd0;
+            count   <= 5'd0;
+            y       <= 32'd0;
+        end else begin
+            if (count == 0) begin
+                product <= 32'd0;
+                b_reg   <= b;
+                count   <= 5'd16;
+            end else begin
+                if (b_reg[0])
+                    product <= product + (a << (16 - count));
+
+                b_reg <= b_reg >> 1;
+                count <= count - 1;
+
+                if (count == 1)
+                    y <= product;
+            end
+        end
+    end
+
+endmodule
